@@ -1,0 +1,15 @@
+{
+  "name": "memory_palace",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Userdecks.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "angular-material-icons": "^0.7.0",
+    "mongoose": "^4.4.11"
+  }
+}

@@ -1,0 +1,82 @@
+  <!DOCTYPE html>
+<html ng-app="app" lang="en" >
+  <head>
+    <meta name="description" content="Angular Material: Containers with the Layout API">
+
+    <link rel="stylesheet" href="https://rawgit.com/angular/bower-material/master/angular-material.css"/>
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular-animate.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular-aria.js"></script>
+    <script src="https://rawgit.com/angular/bower-material/master/angular-material.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material-icons/0.7.0/angular-material-icons.min.js"></script>
+    <script src="Userdecks.js"></script>
+  </head>
+
+  <body  ng-cloak layout="column">
+
+    <md-toolbar  layout="row">
+      <h1>Memory Palace</h1>
+      <div class="nav" layout="row">
+       <md-button>About</md-button>
+       <md-button>Login</md-button>
+       <md-button>Pro</md-button>
+      </div>
+    </md-toolbar>
+
+     <div class="container" ng-controller='deck' layout="row" flex>
+        <md-sidenav md-is-locked-open="true" class="md-whiteframe-2dp">
+          <md-list>
+            <md-list-item >
+              <a>
+                <md-item-content md-ink-ripple layout="row" layout-align="start center">
+                  <div class="inset">
+                    <ng-md-icon icon="dashboard"></ng-md-icon>
+                  </div>
+                  <div class="inset">Dashboard
+                  </div>
+                </md-item-content>
+              </a>
+            </md-list-item>
+            <md-list-item  ng-click="showPrompt($event)" >
+              <a>
+                <md-item-content md-ink-ripple layout="row" layout-align="start center">
+                  <div class="inset">
+                    <ng-md-icon icon="note_add"></ng-md-icon>
+                  </div>
+                  <div class="inset">Add Deck
+                  </div>
+                </md-item-content>
+              </a>
+            </md-list-item>
+            <md-divider></md-divider>
+            <md-subheader>Management</md-subheader>
+            <md-list-item ng-repeat="item in admin">
+              <a>
+                <md-item-content md-ink-ripple layout="row" layout-align="start center">
+                  <div class="inset">
+                    <ng-md-icon icon="{{item.icon}}"></ng-md-icon>
+                  </div>
+                  <div class="inset">{{item.title}}
+                  </div>
+                </md-item-content>
+              </a>
+            </md-list-item>
+          </md-list>
+  </md-sidenav>
+        <md-content id="content" class="lightgreen" flex>
+        <div ng-controller="deck" id="curDeck">
+          <md-list-item class="md-3-line" ng-repeat="card in d" ng-click="null">
+          <div class="md-list-item-text" layout="column">
+            <td>{{card.front}}</td>
+            <td>{{card.back}}</td>
+          <md-button class="md-secondary">Review Deck</md-button>
+          <md-divider ng-if="!$last"></md-divider>
+          </div>
+        </md-list-item>
+        </div>
+        </md-content>
+    </div>
+
+  </body>
+</html>
