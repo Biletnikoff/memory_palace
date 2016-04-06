@@ -1,26 +1,12 @@
 var mongoose = require('mongoose');
 
 // Flesh out our Character schema and register the model with Mongoose
-
-var user = new mongoose.Schema({
-  username:{
-  type:  String,
-  unique: true
-},
-  nickname: String,
-  house: String,
-  imageUrl: String
+// TODO: add decks into user schema
+var deckSchema = new mongoose.Schema({
+  deckname: String,
+  deck:Array
 })
 // model is always single
-var User = mongoose.model('user', characterSchema);
+var User = mongoose.model('user', deckSchema);
 
-module.exports = UserDecks;
-
-
-UserDecks = {
-  id: String,
-  deckname: 'test',
-  cards:  [
-     {front: String, back: String},
-   ];
-})
+module.exports = User;
