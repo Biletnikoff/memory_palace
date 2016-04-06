@@ -6,7 +6,7 @@ angular.module('palace.services', [])
   var addOne = function(url) {
     return $http({
       method: 'POST',
-      url: '/api/links',
+      url: '/api/decks',
       data: url
     }).then(function(resp) {
 
@@ -17,7 +17,7 @@ angular.module('palace.services', [])
     var getAll = function() {
       return $http({
         method: 'GET',
-        url: '/api/links',
+        url: '/api/decks',
       }).then(function(resp) {
         return resp.data;
       });

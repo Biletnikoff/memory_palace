@@ -2,7 +2,7 @@ var Userdecks = require('Userdecks.js');
 
 // Create our necessary controller methods to perform all needed CRUD actions
 
-exports.createOne = function(req, res) {
+exports.createDeck = function(req, res) {
 
   var newDeck = req.body;
   // creates a new character from the request.body
